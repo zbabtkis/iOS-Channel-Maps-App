@@ -11,9 +11,8 @@
 
 @implementation NEESSitesModel
 
-+(NSMutableArray *)fetch {
-    NSURL *url = [NSURL URLWithString:@"http://www.nees.ucsb.edu/channel-maps/ajax/sites"];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+-(NSMutableArray *)fetch {
+    NSURLRequest *request = [NSURLRequest requestWithURL:[self url]];
     
     NSData *jsonData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSMutableArray *parsedArray = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
@@ -23,11 +22,20 @@
 -(id)init {
     self = [super init];
     
-    NSMutableArray *sitesArray = [NEESSitesModel fetch];
+    if(!_url) {
+        _url = [NSURL URLWithString:@"http://www.nees.ucsb.edu/channel-maps/ajax/sites"];
+    }
+    
+    
+    
+    NSMutableArray *sitesArray  = [self fetch];
     NSMutableArray *modelsArray = [[NSMutableArray alloc] init];
     
     for(id obj in sitesArray) {
         NEESSiteModel *model = [[NEESSiteModel alloc] initWithSite:obj];
+        
+        model.url     = _url;
+        model.baseURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@",[_url host]]];
         
         if([model.isActive boolValue]) {
             [modelsArray addObject:model];
@@ -37,6 +45,12 @@
     _models = [[NSMutableArray alloc] initWithArray:modelsArray];
         
     return self;
+}
+
+-(id)initWithURL:(NSURL *)url {
+    _url = url;
+    
+    return self = [self init];
 }
 
 @end

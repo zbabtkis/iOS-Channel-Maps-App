@@ -14,8 +14,10 @@
 @property NSString *isActive;
 @property NSString *mapBE;
 @property NSString *mapCS;
-@property NSString *url;
+@property NSURL    *url;
+@property NSURL    *baseURL;
 
 -(id)initWithSite:(NSDictionary *)site;
+-(NSArray *)fetchChannels;
 
 @end

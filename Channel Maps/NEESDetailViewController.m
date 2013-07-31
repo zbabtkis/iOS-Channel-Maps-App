@@ -37,19 +37,32 @@
     // Update the user interface for the detail item.
 
     if (self.detailItem) {
-        NSLog(@"url: %@", [self.detailItem mapBE]);
-        NSString *urlString = [NSString stringWithFormat:@"%@%@",[self.detailItem url],[self.detailItem mapBE]];
-        NSURL *imagePath = [NSURL URLWithString:urlString];
+        NSURL *imagePath = [[self.detailItem baseURL] URLByAppendingPathComponent:[self.detailItem mapBE]];
         NSData *imageData = [NSData dataWithContentsOfURL:imagePath];
         UIImage *map = [[UIImage alloc] initWithData:imageData];
         
         [self.mapView initWithImage:map];
+        
+        NSArray *channels = [self.detailItem fetchChannels];
+        
+        for(id obj in channels) {
+            float xoff = [[[[obj objectForKey:@"offset"] objectForKey:@"birdsEye"] objectForKey:@"x"] integerValue] / 3;
+            float yoff = [[[[obj objectForKey:@"offset"] objectForKey:@"birdsEye"] objectForKey:@"y"] integerValue] / 2.8;
+            UIButton *chanBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+            chanBtn.frame = CGRectMake(xoff,yoff, 15, 15);
+#if DEBUG
+            NSLog(@"x offset: %i, y offset: %i", xoff, yoff);
+#endif
+            [chanBtn setTitle:[NSString stringWithFormat:@"%@", [obj objectForKey:@"id"]] forState:UIControlStateNormal];
+            [self.view addSubview:chanBtn];
+        }
     }
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
 	// Do any additional setup after loading the view, typically from a nib.
     [self configureView];
 }

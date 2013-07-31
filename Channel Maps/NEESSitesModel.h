@@ -10,8 +10,9 @@
 
 @interface NEESSitesModel : NSObject
 
+@property NSURL *url;
 @property NSMutableArray *models;
 
 -(id)init;
-+(NSMutableArray *)fetch;
+-(NSMutableArray *)fetch;
 @end
