@@ -14,4 +14,6 @@
 
 @property (strong, nonatomic) NEESDetailViewController *detailViewController;
 
+-(void)populateWithSites:sites;
+
 @end

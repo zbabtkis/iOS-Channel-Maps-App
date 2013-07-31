@@ -22,6 +22,8 @@
 		14BAACF417A83A1800CB82F0 /* NEESMasterViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14BAACF217A83A1800CB82F0 /* NEESMasterViewController_iPad.xib */; };
 		14BAACF717A83A1800CB82F0 /* NEESDetailViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14BAACF517A83A1800CB82F0 /* NEESDetailViewController_iPhone.xib */; };
 		14BAACFA17A83A1800CB82F0 /* NEESDetailViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14BAACF817A83A1800CB82F0 /* NEESDetailViewController_iPad.xib */; };
+		14BAAD0217A8436400CB82F0 /* NEESSitesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BAAD0117A8436400CB82F0 /* NEESSitesModel.m */; };
+		14BAAD0917A8623000CB82F0 /* NEESSiteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BAAD0817A8623000CB82F0 /* NEESSiteModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,10 @@
 		14BAACF317A83A1800CB82F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/NEESMasterViewController_iPad.xib; sourceTree = "<group>"; };
 		14BAACF617A83A1800CB82F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/NEESDetailViewController_iPhone.xib; sourceTree = "<group>"; };
 		14BAACF917A83A1800CB82F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/NEESDetailViewController_iPad.xib; sourceTree = "<group>"; };
+		14BAAD0017A8436400CB82F0 /* NEESSitesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NEESSitesModel.h; sourceTree = "<group>"; };
+		14BAAD0117A8436400CB82F0 /* NEESSitesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NEESSitesModel.m; sourceTree = "<group>"; };
+		14BAAD0717A8623000CB82F0 /* NEESSiteModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NEESSiteModel.h; sourceTree = "<group>"; };
+		14BAAD0817A8623000CB82F0 /* NEESSiteModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NEESSiteModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +109,10 @@
 				14BAACF517A83A1800CB82F0 /* NEESDetailViewController_iPhone.xib */,
 				14BAACF817A83A1800CB82F0 /* NEESDetailViewController_iPad.xib */,
 				14BAACD817A83A1800CB82F0 /* Supporting Files */,
+				14BAAD0017A8436400CB82F0 /* NEESSitesModel.h */,
+				14BAAD0117A8436400CB82F0 /* NEESSitesModel.m */,
+				14BAAD0717A8623000CB82F0 /* NEESSiteModel.h */,
+				14BAAD0817A8623000CB82F0 /* NEESSiteModel.m */,
 			);
 			path = "Channel Maps";
 			sourceTree = "<group>";
@@ -195,6 +205,8 @@
 				14BAACE217A83A1800CB82F0 /* NEESAppDelegate.m in Sources */,
 				14BAACEB17A83A1800CB82F0 /* NEESMasterViewController.m in Sources */,
 				14BAACEE17A83A1800CB82F0 /* NEESDetailViewController.m in Sources */,
+				14BAAD0217A8436400CB82F0 /* NEESSitesModel.m in Sources */,
+				14BAAD0917A8623000CB82F0 /* NEESSiteModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

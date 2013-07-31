@@ -7,6 +7,7 @@
 //
 
 #import "NEESDetailViewController.h"
+#import "NEESSiteModel.h"
 
 @interface NEESDetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
@@ -36,7 +37,13 @@
     // Update the user interface for the detail item.
 
     if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
+        NSLog(@"url: %@", [self.detailItem mapBE]);
+        NSString *urlString = [NSString stringWithFormat:@"%@%@",[self.detailItem url],[self.detailItem mapBE]];
+        NSURL *imagePath = [NSURL URLWithString:urlString];
+        NSData *imageData = [NSData dataWithContentsOfURL:imagePath];
+        UIImage *map = [[UIImage alloc] initWithData:imageData];
+        
+        [self.mapView initWithImage:map];
     }
 }
 
